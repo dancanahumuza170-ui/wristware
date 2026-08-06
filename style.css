@@ -397,7 +397,7 @@
       top:92px;
       border-radius: var(--radius);
       border:1px solid var(--border);
-      background: rgba(18,26,43,.65);
+      background: rgba(235, 92, 82, 0.65);
       box-shadow: var(--shadow);
       overflow:hidden;
     }

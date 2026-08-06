@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Xtreme Kicks & Wrist Ware | Shoes</title>
+
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>⚡</span></div>
+        <div>
+          Xtreme Kicks & Wrist Ware
+          <small>Shoes • Wrist Ware • Street Style</small>
+        </div>
+      </div>
+
+      <nav>
+        <a class="chip" href="#shop">🛍️ Shop</a>
+        <a class="chip" href="#featured">🔥 Featured</a>
+        <a class="chip" href="#reviews">⭐ Reviews</a>
+        <button class="cart-btn" type="button" id="cartToggleBtn" title="View cart">
+          🛒 Cart <span class="cart-pill" id="cartCount">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Store hero">
+      <div class="hero-main">
+        <div class="hero-content">
+          <div class="kicker"><span class="dot"></span> New drops weekly • Limited stock</div>
+          <h1>Step into the next level of style. <span style="color:var(--brand);">Xtreme</span> picks for everyday comfort.</h1>
+          <p class="hero-text">
+            Discover premium shoes and wrist ware made for movement. Add items to your cart instantly and checkout in seconds.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#shop">✨ Browse Shoes</a>
+            <button class="btn btn-danger" type="button" id="clearAllBtn">🧼 Clear Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="stats">
+          <div class="stat">
+            <b>⚡ Fast</b>
+            <span>Quick add to cart</span>
+          </div>
+          <div class="stat">
+            <b>🛡️ Secure</b>
+            <span>Clean checkout UI</span>
+          </div>
+          <div class="stat">
+            <b>🌈 Stylish</b>
+            <span>Street-ready picks</span>
+          </div>
+          <div class="stat">
+            <b>🎁 Deals</b>
+            <span>Bundle-ready items</span>
+          </div>
+        </div>
+        <div class="promo" id="featured">
+          <strong>🔥 Featured Deal</strong>
+          <p>Buy any shoe + wrist ware and get a clean “Style Saver” discount at checkout.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Layout: Products + Cart -->
+    <main class="layout" id="shop">
+      <!-- Products -->
+      <section>
+        <div class="section-title">
+          <h2>🧩 Shop the Drop</h2>
+          <div class="filter-row">
+            <select class="select" id="categorySelect" aria-label="Filter category">
+              <option value="all">All Products</option>
+              <option value="shoes">Shoes</option>
+              <option value="wrist">Wrist Ware</option>
+            </select>
+            <select class="select" id="sortSelect" aria-label="Sort products">
+              <option value="featured">Sort: Featured</option>
+              <option value="low">Sort: Price Low → High</option>
+              <option value="high">Sort: Price High → Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid" id="productGrid">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <!-- Cart -->
+      <aside class="cart" aria-label="Cart">
+        <div class="cart-head">
+          <h2>🛒 Your Cart</h2>
+          <button class="clear-btn" type="button" id="clearCartBtn">Clear</button>
+        </div>
+
+        <div class="cart-body" id="cartItems">
+          <div class="empty" id="cartEmpty">
+            Your cart is empty. Add something 🔥
+          </div>
+          <!-- Items injected by JS -->
+        </div>
+
+        <div class="cart-foot">
+          <div class="totals">
+            <div class="line">
+              <span>Subtotal</span>
+              <strong id="subtotal">Shs0.00</strong>
+            </div>
+            <div class="line">
+              <span>Style Saver</span>
+              <strong id="discount">Shs0.00</strong>
+            </div>
+            <div class="line" style="font-size:16px; color:var(--text);">
+              <span>Total</span>
+              <strong id="total">Shs0.00</strong>
+            </div>
+          </div>
+          <button class="checkout" type="button" id="checkoutBtn">✅ Checkout</button>
+          <div style="margin-top:10px; color:var(--muted); font-weight:800; font-size:12px;">
+            Demo checkout UI (no payment). 🚀
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Reviews -->
+    <footer id="reviews">
+      <div style="margin-bottom:10px;">⭐ Customer vibe</div>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <span class="chip">“So comfy!” ✅</span>
+        <span class="chip">“Looks premium.” ✨</span>
+        <span class="chip">“Fast cart add.” ⚡</span>
+      </div>
+      <div style="margin-top:14px;">© <span id="year"></span> Xtreme Kicks & Wrist Ware. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    const products = [
+      { id: "xk-01", name: "Xtreme Runner", category:"shoes", tag:"Shoes", price: 20000, image:"images/airf1.jpg", desc:"Cushion comfort for daily miles. Breathable & lightweight." , featured: 1},
+      { id: "xk-02", name: "Street Volt Sneakers", category:"shoes", tag:"Shoes", price: 51000, image:"images/log2.jpg", desc:"Bold street style with a secure fit and smooth step.", featured: 1},
+      { id: "xk-03", name: "Night Rush Trainers", category:"shoes", tag:"Shoes", price: 42000, image:"images/log1.jpg", desc:"Dark-fade design + all-day support. Built for movement." , featured: 1},
+      { id: "xk-04", name: "FlexGrip Wrist Band", category:"wrist", tag:"Wrist Ware", price: 36000, image:"images/mod1.jpg", desc:"Stay locked in. Sweat-friendly and comfortable for training." , featured: 1},
+      { id: "xk-05", name: "PulseGlow Bracelet", category:"wrist", tag:"Wrist Ware", price: 70000, image:"images/mod2.jpg", desc:"Premium look with a snug feel. Perfect match with kicks." , featured: 1},
+      { id: "xk-06", name: "ProLock Wrist Strap", category:"wrist", tag:"Wrist Ware", price: 65260, image:"images/mod3.jpg", desc:"Durable strap for everyday wear. Clean, minimal style." , featured: 1},
+    ];
+
+    const state = {
+      cart: {}, // id -> { product, qty }
+      tempQty: {} // productId -> qty in card
+    };
+
+    const money = (n) => n.toLocaleString(undefined, { style:"currency", currency:"UGX" });
+
+    // Elements
+    const grid = document.getElementById("productGrid");
+    const categorySelect = document.getElementById("categorySelect");
+    const sortSelect = document.getElementById("sortSelect");
+
+    const cartCount = document.getElementById("cartCount");
+    const cartItemsEl = document.getElementById("cartItems");
+    const cartEmptyEl = document.getElementById("cartEmpty");
+
+    const subtotalEl = document.getElementById("subtotal");
+    const discountEl = document.getElementById("discount");
+    const totalEl = document.getElementById("total");
+
+    const clearCartBtn = document.getElementById("clearCartBtn");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function computeDiscount(subtotal, hasShoes, hasWrist){
+      // Style Saver: if cart contains at least one shoe and one wrist ware => 10% off
+      const eligible = hasShoes && hasWrist && subtotal > 0;
+      if(!eligible) return 0;
+      return subtotal * 0.10;
+    }
+
+    function cartTotals(){
+      const items = Object.values(state.cart);
+      const subtotal = items.reduce((sum, it) => sum + it.product.price * it.qty, 0);
+
+      const hasShoes = items.some(it => it.product.category === "shoes");
+      const hasWrist = items.some(it => it.product.category === "wrist");
+
+      const discount = computeDiscount(subtotal, hasShoes, hasWrist);
+      const total = Math.max(0, subtotal - discount);
+
+      return { subtotal, discount, total, itemCount: items.reduce((s, it)=>s+it.qty, 0) };
+    }
+
+    function renderCart(){
+      const { subtotal, discount, total, itemCount } = cartTotals();
+      cartCount.textContent = itemCount;
+
+      // Update totals
+      subtotalEl.textContent = money(subtotal);
+      discountEl.textContent = "-" + money(discount);
+      totalEl.textContent = money(total);
+
+      // Items
+      const items = Object.values(state.cart).sort((a,b)=>a.product.featured - b.product.featured);
+      // Keep the empty placeholder controlled
+      cartEmptyEl.style.display = items.length ? "none" : "block";
+
+      // Remove old rendered items (everything except placeholder)
+      cartItemsEl.querySelectorAll(".cart-item").forEach(n => n.remove());
+
+      items.forEach(({ product, qty }) => {
+        const item = document.createElement("div");
+        item.className = "cart-item";
+
+        item.innerHTML = `
+          <div>
+            <b>${product.emoji} ${product.name}</b>
+            <small>${product.tag} • ${money(product.price)} each</small>
+          </div>
+          <div class="right">
+            <div class="mini-qty">
+              <button type="button" aria-label="Decrease quantity">−</button>
+              <span>${qty}</span>
+              <button type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <div style="display:flex; gap:10px; align-items:center; justify-content:flex-end;">
+              <div style="font-weight:1000;">${money(product.price * qty)}</div>
+              <button class="remove" type="button">Remove</button>
+            </div>
+          </div>
+        `;
+
+        const [decBtn, qtySpan, incBtn] = item.querySelectorAll(".mini-qty button");
+        const removeBtn = item.querySelector(".remove");
+
+        decBtn.addEventListener("click", () => updateQty(product.id, -1));
+        incBtn.addEventListener("click", () => updateQty(product.id, +1));
+        removeBtn.addEventListener("click", () => removeItem(product.id));
+
+        cartItemsEl.appendChild(item);
+      });
+    }
+
+    function updateQty(productId, delta){
+      if(!state.cart[productId]) return;
+      state.cart[productId].qty += delta;
+      if(state.cart[productId].qty <= 0){
+        delete state.cart[productId];
+      }
+      renderCart();
+    }
+
+    function removeItem(productId){
+      delete state.cart[productId];
+      renderCart();
+    }
+
+    function clearCart(){
+      state.cart = {};
+      renderCart();
+    }
+
+    function addToCart(productId, qty){
+      const product = products.find(p => p.id === productId);
+      if(!product || qty <= 0) return;
+
+      if(!state.cart[productId]){
+        state.cart[productId] = { product, qty: 0 };
+      }
+      state.cart[productId].qty += qty;
+      renderCart();
+    }
+
+    function renderProducts(){
+      const category = categorySelect.value;
+      const sort = sortSelect.value;
+
+      let list = products.slice();
+
+      if(category !== "all"){
+        list = list.filter(p => p.category === category);
+      }
+
+      if(sort === "low") list.sort((a,b)=>a.price-b.price);
+      if(sort === "high") list.sort((a,b)=>b.price-a.price);
+      if(sort === "featured") list.sort((a,b)=>b.featured-a.featured);
+
+      grid.innerHTML = "";
+
+      list.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        // default qty for each card
+        if(state.tempQty[p.id] == null) state.tempQty[p.id] = 1;
+
+        card.innerHTML = `
+<div class="card-top">
+    <div class="tag">${p.tag}</div>
+    <div class="price">Shs ${p.price.toLocaleString()}</div>
+</div>
+
+<div class="img">
+    <img src="${p.image}" alt="${p.name}">
+</div>
+
+<div class="card-body">
+    <h3>${p.name}</h3>
+    <p>${p.desc}</p>
+
+    <div class="row">
+        <div class="qty">
+            <button type="button" data-dec="${p.id}">−</button>
+            <input type="text"
+                   value="${state.tempQty[p.id]}"
+                   data-qty="${p.id}">
+            <button type="button" data-inc="${p.id}">+</button>
+        </div>
+
+        <button class="add-btn" type="button" data-add="${p.id}">
+            🛒 Add
+        </button>
+    </div>
+</div>
+`;
+
+        // qty controls
+        card.querySelector(`[data-dec="${p.id}"]`).addEventListener("click", () => {
+          state.tempQty[p.id] = Math.max(1, state.tempQty[p.id] - 1);
+          card.querySelector(`[data-qty="${p.id}"]`).value = state.tempQty[p.id];
+        });
+
+        card.querySelector(`[data-inc="${p.id}"]`).addEventListener("click", () => {
+          state.tempQty[p.id] = Math.min(99, state.tempQty[p.id] + 1);
+          card.querySelector(`[data-qty="${p.id}"]`).value = state.tempQty[p.id];
+        });
+
+        card.querySelector(`[data-qty="${p.id}"]`).addEventListener("input", (e) => {
+          const v = parseInt(e.target.value.replace(/[^\d]/g,''), 10);
+          state.tempQty[p.id] = Number.isFinite(v) && v > 0 ? Math.min(99, v) : 1;
+          e.target.value = state.tempQty[p.id];
+        });
+
+        // add button
+        card.querySelector(`[data-add="${p.id}"]`).addEventListener("click", () => {
+          addToCart(p.id, state.tempQty[p.id]);
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Events
+    categorySelect.addEventListener("change", renderProducts);
+    sortSelect.addEventListener("change", renderProducts);
+
+    clearCartBtn.addEventListener("click", clearCart);
+    clearAllBtn.addEventListener("click", clearCart);
+
+    checkoutBtn.addEventListener("click", () => {
+      const { itemCount, total } = cartTotals();
+      if(itemCount === 0){
+        alert("🛒 Your cart is empty. Add shoes or wrist ware first!");
+        return;
+      }
+      alert(`✅ Checkout successful (demo)\nItems: ${itemCount}\nTotal: ${total.toFixed(2)}\n\nThanks for shopping at Xtreme Kicks!`);
+      clearCart();
+    });
+
+    // Initial render
+    renderProducts();
+    renderCart();
+
+    // Optional: smooth scroll to cart
+    document.getElementById("cartToggleBtn").addEventListener("click", () => {
+      document.querySelector(".cart").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+</body>
+</html>

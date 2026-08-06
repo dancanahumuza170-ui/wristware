@@ -41,7 +41,7 @@
       justify-content:space-between;
       gap:16px;
       padding:14px 16px;
-      background:rgba(18,26,43,.75);
+      background:rgba(199, 187, 147, 0.75);
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -132,7 +132,7 @@
       padding:22px 22px 26px;
       border-radius: var(--radius);
       border:1px solid var(--border);
-      background: rgba(18,26,43,.65);
+      background: rgba(235, 92, 82, 0.65);
       box-shadow: var(--shadow);
       overflow:hidden;
       position:relative;
@@ -204,7 +204,7 @@
       padding:18px;
       border-radius: var(--radius);
       border:1px solid var(--border);
-      background: rgba(18,26,43,.55);
+      background: rgba(235, 92, 82, 0.65);
       box-shadow: var(--shadow);
       display:flex;
       flex-direction:column;

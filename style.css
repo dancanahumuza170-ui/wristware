@@ -655,8 +655,9 @@
     footer li { 
       font-size: 13px; 
       color: #c9c9cd; 
-      argin: 10px 0; 
+      margin: 10px 0; 
     }
+    
     footer li a :hover {
       color: var(--lime); 
     }

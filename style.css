@@ -810,7 +810,7 @@
     } 
     nav { 
         display: flex; 
-        flex-direction: column;
+        flex-direction: row;
     } 
     .mobile-menu { 
         display: grid; 
@@ -909,7 +909,7 @@
 
       .header-tools .icon-btn:first-child { 
         display: flex;
-    flex-direction: column; 
+    flex-direction: row; 
     } 
     h1 { 
         font-size: 57px;

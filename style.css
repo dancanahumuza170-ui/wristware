@@ -809,7 +809,8 @@
         height: 68px; 
     } 
     nav { 
-        display: all; 
+        display: flex; 
+        flex-direction: column;
     } 
     .mobile-menu { 
         display: grid; 

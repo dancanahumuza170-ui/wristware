@@ -815,9 +815,9 @@
         height: 68px; 
     } 
     /* nav {  */
-        /* display: none;  */
+        /* display: none;  
     
-    } 
+    } */
     .mobile-menu { 
         display: grid; 
     }
@@ -913,10 +913,14 @@
         display: none; 
     }
 
-      .header-tools .icon-btn:first-child { 
+    .header-tools .icon-btn:first-child { 
         display: flex;
-        flex-direction: none;
+        flex-direction: column;
 
+    } 
+     nav {  
+          display: none;  
+    
     } 
     h1 { 
         font-size: 57px;

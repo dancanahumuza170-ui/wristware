@@ -908,7 +908,8 @@
     }
 
       .header-tools .icon-btn:first-child { 
-        display: none; 
+        display: flex;
+    flex-direction: column; 
     } 
     h1 { 
         font-size: 57px;

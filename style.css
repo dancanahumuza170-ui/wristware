@@ -814,7 +814,8 @@
     } 
     nav { 
         display: flex; 
-        flex-direction: row;
+        flex-direction: column;
+        padding: 0.3px;
     } 
     .mobile-menu { 
         display: grid; 

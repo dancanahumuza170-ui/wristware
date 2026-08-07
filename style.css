@@ -814,9 +814,8 @@
     header { 
         height: 68px; 
     } 
-    nav { 
-        display: none; 
-        flex-direction: none;
+    /* nav {  */
+        /* display: none;  */
     
     } 
     .mobile-menu { 

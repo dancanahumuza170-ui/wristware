@@ -915,9 +915,7 @@
 
       .header-tools .icon-btn:first-child { 
         display: flex;
-    flex-direction: row;
-        padding: 0.3px;
-        margin: 1px;
+        flex-direction: inherit;
 
     } 
     h1 { 

@@ -79,8 +79,8 @@
         }
 
     .logo-mark {
-      width: 28px; 
-      height: 28px; 
+      width: 38px; 
+      height: 38px; 
       background: var(--lime); 
       border-radius: 7px;
       position: relative; 
@@ -182,6 +182,10 @@
         padding: 66px 36px 48px 0; 
         position: relative; 
         z-index: 2; 
+    }
+
+    .hero em {
+        color: rgb(235, 67, 67);
     }
 
     .eyebrow {
@@ -349,7 +353,7 @@
     .marquee { 
         overflow: hidden; 
         white-space: nowrap; 
-        background: var(--lime); 
+        background: var(--orange); 
         padding: 16px 0; 
         margin-bottom: 78px; 
     }

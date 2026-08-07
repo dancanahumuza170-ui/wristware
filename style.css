@@ -815,7 +815,7 @@
         height: 68px; 
     } 
     nav { 
-        display: flex; 
+        display: none; 
         flex-direction: none;
     
     } 

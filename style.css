@@ -73,7 +73,7 @@
         display: flex;
          align-items: center;
          gap: 10px; 
-         font-size: 21px; 
+         font-size: 50px; 
          letter-spacing: -.08em; 
          font-weight: 950; 
         }
@@ -809,7 +809,7 @@
         height: 68px; 
     } 
     nav { 
-        display: none; 
+        display: all; 
     } 
     .mobile-menu { 
         display: grid; 

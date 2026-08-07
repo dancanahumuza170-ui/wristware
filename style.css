@@ -80,7 +80,8 @@
 
     .logo-mark {
       width: 38px; 
-      height: 38px; 
+      height: 38px;
+      block-size: 40px; 
       background: var(--lime); 
       border-radius: 7px;
       position: relative; 
@@ -815,8 +816,8 @@
     } 
     nav { 
         display: flex; 
-        flex-direction: column;
-        padding: 0.3px;
+        flex-direction: none;
+    
     } 
     .mobile-menu { 
         display: grid; 
@@ -915,7 +916,7 @@
 
       .header-tools .icon-btn:first-child { 
         display: flex;
-        flex-direction: inherit;
+        flex-direction: none;
 
     } 
     h1 { 
